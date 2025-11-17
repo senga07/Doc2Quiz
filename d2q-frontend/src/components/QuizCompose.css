@@ -1,0 +1,37 @@
+.quiz-compose {
+  padding: 0;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.quiz-compose-header {
+  margin-bottom: 24px;
+}
+
+.quiz-compose-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.selected-items-tree {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.selected-items-tree .ant-tree-node-selected {
+  background-color: #fff1f0 !important;
+}
+
+.selected-items-tree .ant-tree-title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  line-height: 24px;
+}
+
+.selected-items-tree .ant-tree-node-content-wrapper {
+  display: flex;
+  align-items: center;
+}

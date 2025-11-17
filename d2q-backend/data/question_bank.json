@@ -1,0 +1,16 @@
+{
+  "banks": [
+    {
+      "bank_id": "bank_1763024991203",
+      "bank_name": "题库1",
+      "creator": "系统",
+      "created_time": "2025-11-13T17:09:51.203603"
+    },
+    {
+      "bank_id": "bank_1763025121701",
+      "bank_name": "题库2",
+      "creator": "系统",
+      "created_time": "2025-11-13T17:12:01.701961"
+    }
+  ]
+}

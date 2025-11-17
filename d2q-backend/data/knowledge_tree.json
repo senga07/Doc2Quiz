@@ -1,0 +1,234 @@
+{
+  "items": [
+    {
+      "id": "30e0f41a-5e39-4a28-b075-029a18f92e99",
+      "name": "终端客户",
+      "type": "folder",
+      "parentId": null,
+      "createdAt": "2025-11-13T08:05:04.254Z"
+    },
+    {
+      "id": "98cdf883-7215-4f90-ad9c-a07514609857",
+      "name": "终端客户资料",
+      "type": "document",
+      "parentId": "30e0f41a-5e39-4a28-b075-029a18f92e99",
+      "createdAt": "2025-11-13T08:05:11.500Z"
+    },
+    {
+      "id": "d117ac2a-2b90-4ac1-b6ce-59d05d50998a",
+      "name": "1 目的",
+      "type": "knowledge",
+      "parentId": "98cdf883-7215-4f90-ad9c-a07514609857",
+      "createdAt": "2025-11-13T16:05:46.213528",
+      "file_name": "终端客户资料管理办法-23年发布稿.docx",
+      "node_id": 1
+    },
+    {
+      "id": "73feee14-29ef-4115-b60f-b3545f474031",
+      "name": "2 适用范围",
+      "type": "knowledge",
+      "parentId": "98cdf883-7215-4f90-ad9c-a07514609857",
+      "createdAt": "2025-11-13T16:05:46.213540",
+      "file_name": "终端客户资料管理办法-23年发布稿.docx",
+      "node_id": 2
+    },
+    {
+      "id": "7ae8a5b2-ba25-412d-af94-c6d30782f89c",
+      "name": "3 客户资料字段与指标",
+      "type": "knowledge",
+      "parentId": "98cdf883-7215-4f90-ad9c-a07514609857",
+      "createdAt": "2025-11-13T16:05:46.213543",
+      "file_name": "终端客户资料管理办法-23年发布稿.docx",
+      "node_id": 3
+    },
+    {
+      "id": "2a80adca-7d4c-45cc-b49b-d3d64e64de62",
+      "name": "3.1 客户资料字段",
+      "type": "knowledge",
+      "parentId": "7ae8a5b2-ba25-412d-af94-c6d30782f89c",
+      "createdAt": "2025-11-13T16:05:46.213545",
+      "file_name": "终端客户资料管理办法-23年发布稿.docx",
+      "node_id": 4
+    },
+    {
+      "id": "e44dc2a9-8ea6-4f9f-a11b-4005662d5c57",
+      "name": "3.2 指标",
+      "type": "knowledge",
+      "parentId": "7ae8a5b2-ba25-412d-af94-c6d30782f89c",
+      "createdAt": "2025-11-13T16:05:46.213547",
+      "file_name": "终端客户资料管理办法-23年发布稿.docx",
+      "node_id": 5
+    },
+    {
+      "id": "75c2d672-48cd-4812-9c08-3fa97388b10d",
+      "name": "4 责任人、职责及权限",
+      "type": "knowledge",
+      "parentId": "98cdf883-7215-4f90-ad9c-a07514609857",
+      "createdAt": "2025-11-13T16:05:46.213549",
+      "file_name": "终端客户资料管理办法-23年发布稿.docx",
+      "node_id": 6
+    },
+    {
+      "id": "9563d21d-bb09-4571-ae9a-a1fc472caf70",
+      "name": "4.1 责任人及职责",
+      "type": "knowledge",
+      "parentId": "75c2d672-48cd-4812-9c08-3fa97388b10d",
+      "createdAt": "2025-11-13T16:05:46.213551",
+      "file_name": "终端客户资料管理办法-23年发布稿.docx",
+      "node_id": 7
+    },
+    {
+      "id": "d4ab780b-db87-4ca2-a885-cd47b2de43bf",
+      "name": "4.2 系统管理权限",
+      "type": "knowledge",
+      "parentId": "75c2d672-48cd-4812-9c08-3fa97388b10d",
+      "createdAt": "2025-11-13T16:05:46.213552",
+      "file_name": "终端客户资料管理办法-23年发布稿.docx",
+      "node_id": 8
+    },
+    {
+      "id": "945e67b3-d974-403a-a3fd-de54dcdbd3ed",
+      "name": "5 新建/维护流程与说明",
+      "type": "knowledge",
+      "parentId": "98cdf883-7215-4f90-ad9c-a07514609857",
+      "createdAt": "2025-11-13T16:05:46.213554",
+      "file_name": "终端客户资料管理办法-23年发布稿.docx",
+      "node_id": 9
+    },
+    {
+      "id": "35355051-1c11-443f-8f9b-08754705371c",
+      "name": "5.1 新建",
+      "type": "knowledge",
+      "parentId": "945e67b3-d974-403a-a3fd-de54dcdbd3ed",
+      "createdAt": "2025-11-13T16:05:46.213556",
+      "file_name": "终端客户资料管理办法-23年发布稿.docx",
+      "node_id": 10
+    },
+    {
+      "id": "44c2323b-66ea-48a7-a7af-64c62e878f0c",
+      "name": "5.1.1 终端客户资料新建流程",
+      "type": "knowledge",
+      "parentId": "35355051-1c11-443f-8f9b-08754705371c",
+      "createdAt": "2025-11-13T16:05:46.213558",
+      "file_name": "终端客户资料管理办法-23年发布稿.docx",
+      "node_id": 11
+    },
+    {
+      "id": "b94ef43d-bb47-4e8e-a7ab-d8b75ff40e82",
+      "name": "5.1.2 字段填写说明",
+      "type": "knowledge",
+      "parentId": "35355051-1c11-443f-8f9b-08754705371c",
+      "createdAt": "2025-11-13T16:05:46.213559",
+      "file_name": "终端客户资料管理办法-23年发布稿.docx",
+      "node_id": 12
+    },
+    {
+      "id": "f251b543-1afa-4017-8af2-7e63e84165c4",
+      "name": "5.2 维护",
+      "type": "knowledge",
+      "parentId": "945e67b3-d974-403a-a3fd-de54dcdbd3ed",
+      "createdAt": "2025-11-13T16:05:46.213561",
+      "file_name": "终端客户资料管理办法-23年发布稿.docx",
+      "node_id": 13
+    },
+    {
+      "id": "0cbfbda5-dadb-47e1-a49d-91a07218faea",
+      "name": "5.2.1 终端客户资料变更流程",
+      "type": "knowledge",
+      "parentId": "f251b543-1afa-4017-8af2-7e63e84165c4",
+      "createdAt": "2025-11-13T16:05:46.213563",
+      "file_name": "终端客户资料管理办法-23年发布稿.docx",
+      "node_id": 14
+    },
+    {
+      "id": "fe98c5bf-9f88-4250-8bee-979bde02b7e3",
+      "name": "5.2.2 线路号对应人员变更流程",
+      "type": "knowledge",
+      "parentId": "f251b543-1afa-4017-8af2-7e63e84165c4",
+      "createdAt": "2025-11-13T16:05:46.213565",
+      "file_name": "终端客户资料管理办法-23年发布稿.docx",
+      "node_id": 15
+    },
+    {
+      "id": "11930c35-39e2-48e8-a6ec-0ea49c5d9268",
+      "name": "5.2.3 终端客户的经销商、线路号变更流程",
+      "type": "knowledge",
+      "parentId": "f251b543-1afa-4017-8af2-7e63e84165c4",
+      "createdAt": "2025-11-13T16:05:46.213567",
+      "file_name": "终端客户资料管理办法-23年发布稿.docx",
+      "node_id": 16
+    },
+    {
+      "id": "51c34b6e-0f16-4f3c-a70d-e02f1831118d",
+      "name": "6 日常管理",
+      "type": "knowledge",
+      "parentId": "98cdf883-7215-4f90-ad9c-a07514609857",
+      "createdAt": "2025-11-13T16:05:46.213568",
+      "file_name": "终端客户资料管理办法-23年发布稿.docx",
+      "node_id": 17
+    },
+    {
+      "id": "d4ba8165-f55b-453d-a7f0-5ce0437e90e6",
+      "name": "6.1 管理要求",
+      "type": "knowledge",
+      "parentId": "51c34b6e-0f16-4f3c-a70d-e02f1831118d",
+      "createdAt": "2025-11-13T16:05:46.213570",
+      "file_name": "终端客户资料管理办法-23年发布稿.docx",
+      "node_id": 18
+    },
+    {
+      "id": "2a96775c-56ee-4cca-be1d-1d1c2ca583f7",
+      "name": "6.2 核查要求",
+      "type": "knowledge",
+      "parentId": "51c34b6e-0f16-4f3c-a70d-e02f1831118d",
+      "createdAt": "2025-11-13T16:05:46.213572",
+      "file_name": "终端客户资料管理办法-23年发布稿.docx",
+      "node_id": 19
+    },
+    {
+      "id": "6fda5876-4202-4517-bed0-995a27b3f1d4",
+      "name": "6.3 考核办法",
+      "type": "knowledge",
+      "parentId": "51c34b6e-0f16-4f3c-a70d-e02f1831118d",
+      "createdAt": "2025-11-13T16:05:46.213574",
+      "file_name": "终端客户资料管理办法-23年发布稿.docx",
+      "node_id": 20
+    },
+    {
+      "id": "30f25b94-7670-45ce-ba4f-a476ea4a2314",
+      "name": "7 附则",
+      "type": "knowledge",
+      "parentId": "98cdf883-7215-4f90-ad9c-a07514609857",
+      "createdAt": "2025-11-13T16:05:46.213576",
+      "file_name": "终端客户资料管理办法-23年发布稿.docx",
+      "node_id": 21
+    },
+    {
+      "id": "84cecede-324b-442d-a872-6e88cd343d39",
+      "name": "7.1 本文件自发布之日起生效实施",
+      "type": "knowledge",
+      "parentId": "30f25b94-7670-45ce-ba4f-a476ea4a2314",
+      "createdAt": "2025-11-13T16:05:46.213577",
+      "file_name": "终端客户资料管理办法-23年发布稿.docx",
+      "node_id": 22
+    },
+    {
+      "id": "413603b7-1c3e-4ddb-abc3-ff2d452cf71d",
+      "name": "7.2 保密条款",
+      "type": "knowledge",
+      "parentId": "30f25b94-7670-45ce-ba4f-a476ea4a2314",
+      "createdAt": "2025-11-13T16:05:46.213579",
+      "file_name": "终端客户资料管理办法-23年发布稿.docx",
+      "node_id": 23
+    },
+    {
+      "id": "819c69c6-0f9c-4f6a-88fc-f06b1ed3ff17",
+      "name": "7.3 相关附件",
+      "type": "knowledge",
+      "parentId": "30f25b94-7670-45ce-ba4f-a476ea4a2314",
+      "createdAt": "2025-11-13T16:05:46.213581",
+      "file_name": "终端客户资料管理办法-23年发布稿.docx",
+      "node_id": 24
+    }
+  ]
+}

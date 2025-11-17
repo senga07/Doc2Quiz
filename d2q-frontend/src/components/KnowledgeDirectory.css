@@ -1,0 +1,21 @@
+.knowledge-directory {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 12px;
+}
+
+.directory-tree {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 12px;
+}
+
+/* 自定义 Tree 节点样式 */
+.directory-tree .ant-tree-node-selected {
+  background-color: #fff1f0 !important;
+}
+
+.directory-tree .ant-tree-node-selected .ant-tree-title {
+  color: #db002a;
+}

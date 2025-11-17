@@ -1,0 +1,177 @@
+.quiz-bank {
+  padding: 0;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* 题库信息卡片 */
+.quiz-bank-info-card {
+  margin-bottom: 16px;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  background: #fafafa;
+  transition: all 0.3s;
+}
+
+.quiz-bank-info-card:hover {
+  border-color: #db002a;
+  box-shadow: 0 2px 8px rgba(219, 0, 42, 0.15);
+}
+
+.quiz-bank-info {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.quiz-bank-info-time {
+  margin-left: 16px;
+}
+
+/* 题目列表项 */
+.quiz-bank-list-item {
+  padding: 0 !important;
+  margin-bottom: 16px;
+}
+
+/* 题目卡片 */
+.quiz-bank-question-card {
+  width: 100%;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  background: #fafafa;
+  transition: all 0.3s;
+}
+
+.quiz-bank-question-card:hover {
+  border-color: #db002a;
+  box-shadow: 0 2px 8px rgba(219, 0, 42, 0.15);
+  transform: translateY(-1px);
+}
+
+.quiz-bank-question-card .ant-card-body {
+  padding: 16px;
+}
+
+/* 题目头部 */
+.quiz-bank-question-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.quiz-bank-question-number {
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  flex-shrink: 0;
+}
+
+.quiz-bank-question-text {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  flex: 1;
+  line-height: 1.6;
+}
+
+/* 标签区域 */
+.quiz-bank-tags {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+/* 选项区域 */
+.quiz-bank-options {
+  margin-bottom: 16px;
+}
+
+.quiz-bank-option {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  padding-left: 8px;
+  transition: color 0.3s;
+}
+
+.quiz-bank-option:hover {
+  color: #333;
+}
+
+/* 答案区域 */
+.quiz-bank-answer {
+  margin-bottom: 12px;
+}
+
+.quiz-bank-answer-label {
+  color: #db002a;
+  font-weight: 500;
+}
+
+.quiz-bank-answer-text {
+  margin-left: 8px;
+  color: #333;
+}
+
+/* 分隔线 */
+.quiz-bank-divider {
+  margin: 12px 0;
+}
+
+/* 解析区域 */
+.quiz-bank-explanation {
+  margin-top: 4px;
+}
+
+.quiz-bank-explanation-label {
+  color: #666;
+  font-weight: 500;
+}
+
+.quiz-bank-explanation-text {
+  margin-top: 8px;
+  margin-bottom: 0;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* 分页 */
+.quiz-bank-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.quiz-bank-pagination .ant-pagination {
+  margin: 0;
+}
+
+.quiz-bank-pagination .ant-pagination-item-active {
+  border-color: #db002a;
+}
+
+.quiz-bank-pagination .ant-pagination-item-active a {
+  color: #db002a;
+}
+
+.quiz-bank-pagination .ant-pagination-item:hover {
+  border-color: #db002a;
+}
+
+.quiz-bank-pagination .ant-pagination-item:hover a {
+  color: #db002a;
+}
+
+.quiz-bank-pagination .ant-pagination-prev:hover .ant-pagination-item-link,
+.quiz-bank-pagination .ant-pagination-next:hover .ant-pagination-item-link {
+  border-color: #db002a;
+  color: #db002a;
+}
+

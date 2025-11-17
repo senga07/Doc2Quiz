@@ -1,0 +1,94 @@
+.quiz-history-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  width: 100%;
+}
+
+.quiz-history-card {
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  transition: all 0.3s;
+  cursor: pointer;
+  background: #fafafa;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+}
+
+.quiz-history-card:hover {
+  border-color: #db002a;
+  box-shadow: 0 2px 8px rgba(219, 0, 42, 0.15);
+  transform: translateY(-2px);
+}
+
+.quiz-history-card .ant-card-body {
+  padding: 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 新增卡片特殊样式 */
+.quiz-create-card {
+  border: 1px dashed #d9d9d9;
+}
+
+.quiz-create-card:hover {
+  border-color: #db002a;
+  border-style: solid;
+}
+
+.quiz-history-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  justify-content: center;
+}
+
+.quiz-history-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  line-height: 1.5;
+  word-break: break-word;
+  text-align: center;
+}
+
+.quiz-history-time {
+  font-size: 12px;
+  color: #999;
+  text-align: center;
+  text-decoration: underline;
+}
+
+/* 新增卡片内容样式 */
+.quiz-create-content {
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.quiz-create-icon {
+  font-size: 48px;
+  color: #999;
+  transition: all 0.3s;
+}
+
+.quiz-create-card:hover .quiz-create-icon {
+  color: #db002a;
+  transform: scale(1.1);
+}
+
+.quiz-create-text {
+  font-size: 16px;
+  font-weight: 500;
+  color: #999;
+  transition: all 0.3s;
+}
+
+.quiz-create-card:hover .quiz-create-text {
+  color: #db002a;
+}
+

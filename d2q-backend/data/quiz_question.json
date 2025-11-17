@@ -1,0 +1,178 @@
+{
+  "quiz_questions": [
+    {
+      "quiz_id": "40a683fd-3876-4ab5-96ae-f837d35677f5",
+      "quiz_name": "试卷1",
+      "question_id": "a22474e1-af74-4de4-91e3-3ba66231f0f2",
+      "question_content": {
+        "type": "single_choice",
+        "question": "在CRM系统中，哪个角色拥有‘终端客户新建’的网页操作权限？",
+        "options": [
+          "A. 业代",
+          "B. 经销商",
+          "C. 客户主任",
+          "D. 以上都是"
+        ],
+        "answer": "D",
+        "difficulty": "低",
+        "score": "1",
+        "explanation": "根据文档4.2系统管理权限表格，‘终端客户新建’的CRM系统网页操作权限（√）由经销商、客户主任、办事处行政、经理共同拥有，因此以上角色都具备该权限。",
+        "knowledge": "4.2 系统管理权限",
+        "knowledge_id": "d4ab780b-db87-4ca2-a885-cd47b2de43bf"
+      }
+    },
+    {
+      "quiz_id": "40a683fd-3876-4ab5-96ae-f837d35677f5",
+      "quiz_name": "试卷1",
+      "question_id": "e91ebf63-53e4-488b-8381-57de79314b38",
+      "question_content": {
+        "type": "single_choice",
+        "question": "根据《终端客户资料管理办法》，在新建终端客户资料时，下列哪一项字段是由系统自动生成且不可手动填写的？",
+        "options": [
+          "A. 客户名称",
+          "B. 地址",
+          "C. 客户编码",
+          "D. 店主手机"
+        ],
+        "answer": "C",
+        "difficulty": "高",
+        "score": "5",
+        "explanation": "根据5.1.2字段填写说明，客户编码的填写规则为‘Y+8位数字’，且明确注明‘系统自动生成’，因此不可手动填写。其他选项均为人工必填项。",
+        "knowledge": "5.1.2 字段填写说明",
+        "knowledge_id": "b94ef43d-bb47-4e8e-a7ab-d8b75ff40e82"
+      }
+    },
+    {
+      "quiz_id": "40a683fd-3876-4ab5-96ae-f837d35677f5",
+      "quiz_name": "试卷1",
+      "question_id": "43df3b5d-d7ff-46c5-9282-42ebf65b7b22",
+      "question_content": {
+        "type": "single_choice",
+        "question": "根据《终端客户资料管理办法》，谁负责全面统筹本大区客户资料管理？",
+        "options": [
+          "A. 线路服务部",
+          "B. 大区总经理",
+          "C. 办事处经理",
+          "D. 客户主任"
+        ],
+        "answer": "B",
+        "difficulty": "低",
+        "score": "1",
+        "explanation": "根据文档4.1责任人及职责部分，大区总经理的职责是全面统筹本大区客户资料管理。",
+        "knowledge": "4.1 责任人及职责",
+        "knowledge_id": "9563d21d-bb09-4571-ae9a-a1fc472caf70"
+      }
+    },
+    {
+      "quiz_id": "40a683fd-3876-4ab5-96ae-f837d35677f5",
+      "quiz_name": "试卷1",
+      "question_id": "056b1790-9f59-40a9-90f4-fbb54405a6b1",
+      "question_content": {
+        "type": "multiple_choice",
+        "question": "以下哪些岗位对客户资料的真实性、完整性、准确性负有直接责任？",
+        "options": [
+          "A. 业代",
+          "B. 经销商",
+          "C. 办事处经理",
+          "D. 大区总经理"
+        ],
+        "answer": "ABCD",
+        "difficulty": "低",
+        "score": "2",
+        "explanation": "根据文档4.1责任人及职责部分，所有列出的岗位均在其职责范围内对客户资料的真实性、完整性、准确性负责。",
+        "knowledge": "4.1 责任人及职责",
+        "knowledge_id": "9563d21d-bb09-4571-ae9a-a1fc472caf70"
+      }
+    },
+    {
+      "quiz_id": "40a683fd-3876-4ab5-96ae-f837d35677f5",
+      "quiz_name": "试卷1",
+      "question_id": "07155fbc-87e7-4060-b578-51180a1d6b0a",
+      "question_content": {
+        "type": "multiple_choice",
+        "question": "关于客户资料管理职责，下列说法正确的有哪些？",
+        "options": [
+          "A. 线路服务部负责制定客户资料管理制度并统筹管理",
+          "B. 大区销售部经理需对大区客户资料负责，并监督客户资料负责人工作",
+          "C. 总部/大区各渠道负责人仅负责销售目标达成，不参与客户资料管理",
+          "D. 业代负责线路内客户资料的新建和维护"
+        ],
+        "answer": "ABD",
+        "difficulty": "高",
+        "score": "3",
+        "explanation": "根据文档4.1责任人及职责表格，A、B、D三项均正确。C项错误，因为总部/大区各渠道负责人职责明确包括‘对渠道客户资料负责，协助监督、跟进，确保客户资料真实准确性’。",
+        "knowledge": "4.1 责任人及职责",
+        "knowledge_id": "9563d21d-bb09-4571-ae9a-a1fc472caf70"
+      }
+    },
+    {
+      "quiz_id": "40a683fd-3876-4ab5-96ae-f837d35677f5",
+      "quiz_name": "试卷1",
+      "question_id": "f20a5fe1-2322-49fd-9df2-0c0f69cd2a43",
+      "question_content": {
+        "type": "multiple_choice",
+        "question": "以下哪些操作可以在CRM系统中由‘办事处经理’级别的角色进行批量维护？",
+        "options": [
+          "A. 拜访频次",
+          "B. 拜访顺序",
+          "C. 线路号",
+          "D. 所属经销商"
+        ],
+        "answer": "ACD",
+        "difficulty": "低",
+        "score": "1",
+        "explanation": "根据文档4.2系统管理权限表格，‘批量维护’中的拜访频次、顺序、日期权限为办事处行政及以上；线路号、所属经销商等信息的批量维护权限为办事处行政、经理、大区销售部等。因此，办事处经理可以进行拜访频次、线路号、所属经销商的批量维护，但拜访顺序不在其批量操作范围内。",
+        "knowledge": "4.2 系统管理权限",
+        "knowledge_id": "d4ab780b-db87-4ca2-a885-cd47b2de43bf"
+      }
+    },
+    {
+      "quiz_id": "40a683fd-3876-4ab5-96ae-f837d35677f5",
+      "quiz_name": "试卷1",
+      "question_id": "1c930356-fd1f-4cc8-8c83-8b158975186b",
+      "question_content": {
+        "type": "true_false",
+        "question": "业代可以在终端机上操作‘终端客户新建’功能。",
+        "options": [],
+        "answer": "正确",
+        "difficulty": "低",
+        "score": "1",
+        "explanation": "根据文档4.2系统管理权限表格，‘终端客户新建’在‘业代’列显示为‘○’，代表其具有终端机操作权限，因此该说法正确。",
+        "knowledge": "4.2 系统管理权限",
+        "knowledge_id": "d4ab780b-db87-4ca2-a885-cd47b2de43bf"
+      }
+    },
+    {
+      "quiz_id": "40a683fd-3876-4ab5-96ae-f837d35677f5",
+      "quiz_name": "试卷1",
+      "question_id": "782a792f-173c-4f98-b156-5334e7fa2ffb",
+      "question_content": {
+        "type": "true_false",
+        "question": "大区线路规划负责人只需负责组织每月客户资料核查，无需对核查结果和错误资料的修正结果负责。",
+        "options": [],
+        "answer": "错误",
+        "difficulty": "高",
+        "score": "2",
+        "explanation": "根据文档4.1责任人及职责，大区线路规划负责人的职责包括‘计划并组织大区开展每月客户资料核查，对核查结果负责’以及‘管理大区客户资料，监督修正错误客户资料，对修正结果负责’，因此该说法错误。",
+        "knowledge": "4.1 责任人及职责",
+        "knowledge_id": "9563d21d-bb09-4571-ae9a-a1fc472caf70"
+      }
+    },
+    {
+      "quiz_id": "40a683fd-3876-4ab5-96ae-f837d35677f5",
+      "quiz_name": "试卷1",
+      "question_id": "8c413c80-9e33-4697-a430-4988370e0568",
+      "question_content": {
+        "type": "true_false",
+        "question": "根据《终端客户资料管理办法》，办事处经理需要对本办事处客户资料负责，并监督、核实并跟进经销商修正客户资料。",
+        "options": [],
+        "answer": "正确",
+        "difficulty": "低",
+        "score": "1",
+        "explanation": "文档4.1责任人及职责中明确规定，办事处经理的职责包括对本办事处客户资料负责，监督、核实并跟进经销商修正客户资料。",
+        "knowledge": "4.1 责任人及职责",
+        "knowledge_id": "9563d21d-bb09-4571-ae9a-a1fc472caf70"
+      }
+    }
+  ]
+}

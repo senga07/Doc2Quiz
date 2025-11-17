@@ -1,0 +1,38 @@
+.quiz-paper-manage {
+  width: 100%;
+  height: 100%;
+}
+
+/* 分页 */
+.quiz-paper-manage-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.quiz-paper-manage-pagination .ant-pagination {
+  margin: 0;
+}
+
+.quiz-paper-manage-pagination .ant-pagination-item-active {
+  border-color: #db002a;
+}
+
+.quiz-paper-manage-pagination .ant-pagination-item-active a {
+  color: #db002a;
+}
+
+.quiz-paper-manage-pagination .ant-pagination-item:hover {
+  border-color: #db002a;
+}
+
+.quiz-paper-manage-pagination .ant-pagination-item:hover a {
+  color: #db002a;
+}
+
+.quiz-paper-manage-pagination .ant-pagination-prev:hover .ant-pagination-item-link,
+.quiz-paper-manage-pagination .ant-pagination-next:hover .ant-pagination-item-link {
+  border-color: #db002a;
+  color: #db002a;
+}
+

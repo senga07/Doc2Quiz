@@ -1,0 +1,31 @@
+.file-upload-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 24px;
+}
+
+.upload-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.uploaded-files {
+  margin-top: 24px;
+}
+
+/* 自定义 Upload 组件主题色 */
+.file-upload-container .ant-upload-drag {
+  border-color: #db002a;
+}
+
+.file-upload-container .ant-upload-drag:hover {
+  border-color: #db002a;
+}
+
+.file-upload-container .ant-upload-drag-icon .anticon {
+  color: #db002a;
+}

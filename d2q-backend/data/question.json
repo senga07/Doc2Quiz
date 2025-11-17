@@ -1,0 +1,249 @@
+{
+  "questions": [
+    {
+      "question_id": "43df3b5d-d7ff-46c5-9282-42ebf65b7b22",
+      "created_time": "2025-11-13T17:09:43.647999",
+      "knowledge_id": "9563d21d-bb09-4571-ae9a-a1fc472caf70",
+      "bank_id": "bank_1763024991203",
+      "question_content": {
+        "type": "single_choice",
+        "question": "根据《终端客户资料管理办法》，谁负责全面统筹本大区客户资料管理？",
+        "options": [
+          "A. 线路服务部",
+          "B. 大区总经理",
+          "C. 办事处经理",
+          "D. 客户主任"
+        ],
+        "answer": "B",
+        "difficulty": "低",
+        "score": "1",
+        "explanation": "根据文档4.1责任人及职责部分，大区总经理的职责是全面统筹本大区客户资料管理。",
+        "knowledge": "4.1 责任人及职责",
+        "knowledge_id": "9563d21d-bb09-4571-ae9a-a1fc472caf70"
+      }
+    },
+    {
+      "question_id": "6e5180c6-2162-4d74-883a-6cad2d902307",
+      "created_time": "2025-11-13T17:09:43.647999",
+      "knowledge_id": "9563d21d-bb09-4571-ae9a-a1fc472caf70",
+      "bank_id": "bank_1763024991203",
+      "question_content": {
+        "type": "single_choice",
+        "question": "在客户资料管理中，当经销商发生更换时，哪一岗位负责督促原经销商的客户资料交接并及时清理和转移客户资料？",
+        "options": [
+          "A. 大区线路规划负责人",
+          "B. 办事处经理",
+          "C. 客户主任",
+          "D. 业代"
+        ],
+        "answer": "C",
+        "difficulty": "高",
+        "score": "2",
+        "explanation": "根据文档4.1责任人及职责表格，客户主任的职责包括：对所属经销商的客户资料负责，核查客户资料并跟进修正；同时在经销商发生更换时，及时清理和转移原经销商的客户资料。",
+        "knowledge": "4.1 责任人及职责",
+        "knowledge_id": "9563d21d-bb09-4571-ae9a-a1fc472caf70"
+      }
+    },
+    {
+      "question_id": "056b1790-9f59-40a9-90f4-fbb54405a6b1",
+      "created_time": "2025-11-13T17:09:43.647999",
+      "knowledge_id": "9563d21d-bb09-4571-ae9a-a1fc472caf70",
+      "bank_id": "bank_1763024991203",
+      "question_content": {
+        "type": "multiple_choice",
+        "question": "以下哪些岗位对客户资料的真实性、完整性、准确性负有直接责任？",
+        "options": [
+          "A. 业代",
+          "B. 经销商",
+          "C. 办事处经理",
+          "D. 大区总经理"
+        ],
+        "answer": "ABCD",
+        "difficulty": "低",
+        "score": "2",
+        "explanation": "根据文档4.1责任人及职责部分，所有列出的岗位均在其职责范围内对客户资料的真实性、完整性、准确性负责。",
+        "knowledge": "4.1 责任人及职责",
+        "knowledge_id": "9563d21d-bb09-4571-ae9a-a1fc472caf70"
+      }
+    },
+    {
+      "question_id": "07155fbc-87e7-4060-b578-51180a1d6b0a",
+      "created_time": "2025-11-13T17:09:43.647999",
+      "knowledge_id": "9563d21d-bb09-4571-ae9a-a1fc472caf70",
+      "bank_id": "bank_1763024991203",
+      "question_content": {
+        "type": "multiple_choice",
+        "question": "关于客户资料管理职责，下列说法正确的有哪些？",
+        "options": [
+          "A. 线路服务部负责制定客户资料管理制度并统筹管理",
+          "B. 大区销售部经理需对大区客户资料负责，并监督客户资料负责人工作",
+          "C. 总部/大区各渠道负责人仅负责销售目标达成，不参与客户资料管理",
+          "D. 业代负责线路内客户资料的新建和维护"
+        ],
+        "answer": "ABD",
+        "difficulty": "高",
+        "score": "3",
+        "explanation": "根据文档4.1责任人及职责表格，A、B、D三项均正确。C项错误，因为总部/大区各渠道负责人职责明确包括‘对渠道客户资料负责，协助监督、跟进，确保客户资料真实准确性’。",
+        "knowledge": "4.1 责任人及职责",
+        "knowledge_id": "9563d21d-bb09-4571-ae9a-a1fc472caf70"
+      }
+    },
+    {
+      "question_id": "8c413c80-9e33-4697-a430-4988370e0568",
+      "created_time": "2025-11-13T17:09:43.647999",
+      "knowledge_id": "9563d21d-bb09-4571-ae9a-a1fc472caf70",
+      "bank_id": "bank_1763024991203",
+      "question_content": {
+        "type": "true_false",
+        "question": "根据《终端客户资料管理办法》，办事处经理需要对本办事处客户资料负责，并监督、核实并跟进经销商修正客户资料。",
+        "options": [],
+        "answer": "正确",
+        "difficulty": "低",
+        "score": "1",
+        "explanation": "文档4.1责任人及职责中明确规定，办事处经理的职责包括对本办事处客户资料负责，监督、核实并跟进经销商修正客户资料。",
+        "knowledge": "4.1 责任人及职责",
+        "knowledge_id": "9563d21d-bb09-4571-ae9a-a1fc472caf70"
+      }
+    },
+    {
+      "question_id": "782a792f-173c-4f98-b156-5334e7fa2ffb",
+      "created_time": "2025-11-13T17:09:43.647999",
+      "knowledge_id": "9563d21d-bb09-4571-ae9a-a1fc472caf70",
+      "bank_id": "bank_1763024991203",
+      "question_content": {
+        "type": "true_false",
+        "question": "大区线路规划负责人只需负责组织每月客户资料核查，无需对核查结果和错误资料的修正结果负责。",
+        "options": [],
+        "answer": "错误",
+        "difficulty": "高",
+        "score": "2",
+        "explanation": "根据文档4.1责任人及职责，大区线路规划负责人的职责包括‘计划并组织大区开展每月客户资料核查，对核查结果负责’以及‘管理大区客户资料，监督修正错误客户资料，对修正结果负责’，因此该说法错误。",
+        "knowledge": "4.1 责任人及职责",
+        "knowledge_id": "9563d21d-bb09-4571-ae9a-a1fc472caf70"
+      }
+    },
+    {
+      "question_id": "a22474e1-af74-4de4-91e3-3ba66231f0f2",
+      "created_time": "2025-11-13T17:09:43.647999",
+      "knowledge_id": "d4ab780b-db87-4ca2-a885-cd47b2de43bf",
+      "bank_id": "bank_1763024991203",
+      "question_content": {
+        "type": "single_choice",
+        "question": "在CRM系统中，哪个角色拥有‘终端客户新建’的网页操作权限？",
+        "options": [
+          "A. 业代",
+          "B. 经销商",
+          "C. 客户主任",
+          "D. 以上都是"
+        ],
+        "answer": "D",
+        "difficulty": "低",
+        "score": "1",
+        "explanation": "根据文档4.2系统管理权限表格，‘终端客户新建’的CRM系统网页操作权限（√）由经销商、客户主任、办事处行政、经理共同拥有，因此以上角色都具备该权限。",
+        "knowledge": "4.2 系统管理权限",
+        "knowledge_id": "d4ab780b-db87-4ca2-a885-cd47b2de43bf"
+      }
+    },
+    {
+      "question_id": "f20a5fe1-2322-49fd-9df2-0c0f69cd2a43",
+      "created_time": "2025-11-13T17:09:43.647999",
+      "knowledge_id": "d4ab780b-db87-4ca2-a885-cd47b2de43bf",
+      "bank_id": "bank_1763024991203",
+      "question_content": {
+        "type": "multiple_choice",
+        "question": "以下哪些操作可以在CRM系统中由‘办事处经理’级别的角色进行批量维护？",
+        "options": [
+          "A. 拜访频次",
+          "B. 拜访顺序",
+          "C. 线路号",
+          "D. 所属经销商"
+        ],
+        "answer": "ACD",
+        "difficulty": "低",
+        "score": "1",
+        "explanation": "根据文档4.2系统管理权限表格，‘批量维护’中的拜访频次、顺序、日期权限为办事处行政及以上；线路号、所属经销商等信息的批量维护权限为办事处行政、经理、大区销售部等。因此，办事处经理可以进行拜访频次、线路号、所属经销商的批量维护，但拜访顺序不在其批量操作范围内。",
+        "knowledge": "4.2 系统管理权限",
+        "knowledge_id": "d4ab780b-db87-4ca2-a885-cd47b2de43bf"
+      }
+    },
+    {
+      "question_id": "1c930356-fd1f-4cc8-8c83-8b158975186b",
+      "created_time": "2025-11-13T17:09:43.647999",
+      "knowledge_id": "d4ab780b-db87-4ca2-a885-cd47b2de43bf",
+      "bank_id": "bank_1763024991203",
+      "question_content": {
+        "type": "true_false",
+        "question": "业代可以在终端机上操作‘终端客户新建’功能。",
+        "options": [],
+        "answer": "正确",
+        "difficulty": "低",
+        "score": "1",
+        "explanation": "根据文档4.2系统管理权限表格，‘终端客户新建’在‘业代’列显示为‘○’，代表其具有终端机操作权限，因此该说法正确。",
+        "knowledge": "4.2 系统管理权限",
+        "knowledge_id": "d4ab780b-db87-4ca2-a885-cd47b2de43bf"
+      }
+    },
+    {
+      "question_id": "e91ebf63-53e4-488b-8381-57de79314b38",
+      "created_time": "2025-11-13T17:11:54.933487",
+      "knowledge_id": "b94ef43d-bb47-4e8e-a7ab-d8b75ff40e82",
+      "bank_id": "bank_1763025121701",
+      "question_content": {
+        "type": "single_choice",
+        "question": "根据《终端客户资料管理办法》，在新建终端客户资料时，下列哪一项字段是由系统自动生成且不可手动填写的？",
+        "options": [
+          "A. 客户名称",
+          "B. 地址",
+          "C. 客户编码",
+          "D. 店主手机"
+        ],
+        "answer": "C",
+        "difficulty": "高",
+        "score": "5",
+        "explanation": "根据5.1.2字段填写说明，客户编码的填写规则为‘Y+8位数字’，且明确注明‘系统自动生成’，因此不可手动填写。其他选项均为人工必填项。",
+        "knowledge": "5.1.2 字段填写说明",
+        "knowledge_id": "b94ef43d-bb47-4e8e-a7ab-d8b75ff40e82"
+      }
+    },
+    {
+      "question_id": "3d0d223a-6a98-4397-a16a-221524e724d5",
+      "created_time": "2025-11-13T17:11:54.933487",
+      "knowledge_id": "0cbfbda5-dadb-47e1-a49d-91a07218faea",
+      "bank_id": "bank_1763025121701",
+      "question_content": {
+        "type": "multiple_choice",
+        "question": "在进行终端客户资料变更时，以下哪些操作需要经过特定审批流程或满足限制条件？",
+        "options": [
+          "A. 将客户状态变更为‘5.已不合作’时未选择关闭原因",
+          "B. 子渠道变更为现代渠道群需经大区KA渠道负责人批示",
+          "C. 客户等级信息由系统每月1日自动更新，禁止人工修改",
+          "D. 统一社会信用代码变更可在CRM系统中由业代直接修改",
+          "E. 线路号变更后未同步更新业代线路区域地图"
+        ],
+        "answer": "ABCE",
+        "difficulty": "高",
+        "score": "5",
+        "explanation": "A正确，客户状态变更为‘5.已不合作’时必须选择具体原因；B正确，子渠道变更至现代渠道群需大区KA渠道负责人审批；C正确，客户等级由系统自动更新，人为不可更改；D错误，业代无权限修改统一社会信用代码，且该字段属于基础信息，变更需走审批流程；E正确，线路号变更备注中明确要求同步更新线路区域地图。",
+        "knowledge": "5.2.1 终端客户资料变更流程",
+        "knowledge_id": "0cbfbda5-dadb-47e1-a49d-91a07218faea"
+      }
+    },
+    {
+      "question_id": "bd904714-cf0d-4836-ab4c-821be2dcc757",
+      "created_time": "2025-11-13T17:11:54.933487",
+      "knowledge_id": "11930c35-39e2-48e8-a6ec-0ea49c5d9268",
+      "bank_id": "bank_1763025121701",
+      "question_content": {
+        "type": "true_false",
+        "question": "根据《终端客户资料管理办法》，当终端客户的所属经销商发生变更时，可通过‘终端客户资料变更流程’直接在系统中由业代发起修改，无需额外审批。",
+        "options": [],
+        "answer": "错误",
+        "difficulty": "高",
+        "score": "5",
+        "explanation": "根据5.2.3‘终端客户的经销商、线路号变更流程’，此类变更为重大信息调整，需经过逐级审批，包括办事处、大区、总部相关部门等，并非由业代直接修改即可完成。同时系统管理权限表中显示，线路号及经销商相关信息的批量维护权限在1-办事处及以上层级，业代无此权限。",
+        "knowledge": "5.2.3 终端客户的经销商、线路号变更流程",
+        "knowledge_id": "11930c35-39e2-48e8-a6ec-0ea49c5d9268"
+      }
+    }
+  ]
+}

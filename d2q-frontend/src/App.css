@@ -1,0 +1,76 @@
+.app-container {
+  min-height: 100vh;
+}
+
+.app-layout {
+  background: transparent;
+}
+
+.app-header {
+  position: sticky;
+  top: 16px;
+  z-index: 10;
+}
+
+.app-sider {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: calc(100vh - 80px);
+}
+
+.app-content {
+  overflow-y: auto;
+  height: calc(100vh - 80px);
+}
+
+/* 导航栏 Tabs 样式 */
+.app-nav-tabs .ant-tabs-nav {
+  margin: 0;
+}
+
+.app-nav-tabs .ant-tabs-nav-wrap {
+  justify-content: center;
+}
+
+.app-nav-tabs .ant-tabs-nav-list {
+  gap: 0;
+  justify-content: center;
+  display: flex;
+}
+
+.app-nav-tabs .ant-tabs-tab {
+  padding: 0 20px;
+  margin: 0;
+  height: 48px;
+  line-height: 48px;
+  border: none;
+  background: transparent;
+  color: #333;
+  font-size: 14px;
+  transition: all 0.3s;
+  flex: 1;
+  text-align: center;
+  min-width: 100px;
+}
+
+.app-nav-tabs .ant-tabs-tab + .ant-tabs-tab {
+  margin-left: 0;
+}
+
+.app-nav-tabs .ant-tabs-tab:hover {
+  color: #db002a;
+}
+
+.app-nav-tabs .ant-tabs-tab-active {
+  background: #db002a;
+  color: #fff !important;
+  border-radius: 4px;
+}
+
+.app-nav-tabs .ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #fff !important;
+}
+
+.app-nav-tabs .ant-tabs-ink-bar {
+  display: none;
+}
