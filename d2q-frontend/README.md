@@ -14,7 +14,7 @@ npm install
 npm run dev
 ```
 
-应用将在 http://localhost:3000 启动
+应用将在 http://localhost:3001 启动
 
 ## 构建
 

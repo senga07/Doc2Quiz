@@ -100,10 +100,10 @@ FAST_LLM=dashscope:qwen-turbo  # 或 azure_openai:gpt-4o-mini
 python main.py
 ```
 
-后端服务将在 http://localhost:8000 启动
+后端服务将在 http://localhost:8001 启动
 
 5. 查看 API 文档：
-访问 http://localhost:8000/docs 查看 Swagger API 文档
+访问 http://localhost:8001/docs 查看 Swagger API 文档
 
 ### 前端启动
 
@@ -122,7 +122,7 @@ npm install
 npm run dev
 ```
 
-前端应用将在 http://localhost:5173 启动（Vite 默认端口）
+前端应用将在 http://localhost:3001 启动
 
 4. 构建生产版本：
 ```bash

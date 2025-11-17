@@ -8,7 +8,7 @@ class Settings(BaseSettings):
     
     # 服务器配置
     host: str = "0.0.0.0"
-    port: int = 8000
+    port: int = 8001
     
     # LLM配置
     fast_llm: Optional[str] = None  # 格式: "provider:model"，例如 "dashscope:qwen-turbo" 或 "azure_openai:gpt-4o-mini"

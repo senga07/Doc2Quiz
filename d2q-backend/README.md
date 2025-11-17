@@ -56,7 +56,7 @@ uv sync
 ```env
 # 服务器配置（可选，有默认值）
 HOST=0.0.0.0
-PORT=8000
+PORT=8001
 
 # Azure OpenAI 配置（可选）
 AZURE_OPENAI_ENDPOINT=your_endpoint
@@ -88,17 +88,17 @@ python main.py
 ### 使用 uvicorn 直接运行
 
 ```bash
-uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+uvicorn main:app --host 0.0.0.0 --port 8001 --reload
 ```
 
-服务将在 http://localhost:8000 启动
+服务将在 http://localhost:8001 启动
 
 ## API 文档
 
 启动服务后，访问以下地址查看 API 文档：
 
-- **Swagger UI**: http://localhost:8000/docs
-- **ReDoc**: http://localhost:8000/redoc
+- **Swagger UI**: http://localhost:8001/docs
+- **ReDoc**: http://localhost:8001/redoc
 
 ## 项目结构
 
