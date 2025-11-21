@@ -86,10 +86,15 @@ export const QuizCreate = ({ selectedItems, onRemoveItem, onClearAll, onNavigate
   // 单个知识点的试题类型配置（key: itemId, value: QuestionTypeConfig[]）
   const [itemQuestionTypes, setItemQuestionTypes] = useState<Map<string, QuestionTypeConfig[]>>(new Map());
   
+  // 题型配置要求（key: itemId, value: string），null表示全局配置
+  const [itemQuestionTypeRequirements, setItemQuestionTypeRequirements] = useState<Map<string, string>>(new Map());
+  const [globalQuestionTypeRequirement, setGlobalQuestionTypeRequirement] = useState<string>('');
+  
   // Modal 相关状态
   const [isConfigModalVisible, setIsConfigModalVisible] = useState(false);
   const [currentConfigItemId, setCurrentConfigItemId] = useState<string | null>(null); // null 表示全局配置
   const [tempQuestionTypes, setTempQuestionTypes] = useState<QuestionTypeConfig[]>(getDefaultQuestionTypes());
+  const [tempQuestionTypeRequirement, setTempQuestionTypeRequirement] = useState<string>('');
 
   // 加载知识树结构（知识点已经合并到knowledge_tree.json中）
   useEffect(() => {
@@ -685,6 +690,7 @@ export const QuizCreate = ({ selectedItems, onRemoveItem, onClearAll, onNavigate
     if (itemId === null) {
       // 全局配置
       setTempQuestionTypes([...globalQuestionTypes]);
+      setTempQuestionTypeRequirement(globalQuestionTypeRequirement);
     } else {
       // 单个知识点配置：如果知识点有单独配置，显示单独配置；否则显示继承的配置
       const itemMap = new Map<string, KnowledgeItem>();
@@ -701,6 +707,10 @@ export const QuizCreate = ({ selectedItems, onRemoveItem, onClearAll, onNavigate
       // 获取该知识点的题型配置（支持继承）
       const questionTypes = getQuestionTypesForItem(itemId, itemMap);
       setTempQuestionTypes([...questionTypes]);
+      
+      // 获取该知识点的配置要求（支持继承）
+      const requirement = getQuestionTypeRequirementForItem(itemId, itemMap);
+      setTempQuestionTypeRequirement(requirement);
     }
     setIsConfigModalVisible(true);
   };
@@ -710,6 +720,7 @@ export const QuizCreate = ({ selectedItems, onRemoveItem, onClearAll, onNavigate
     if (currentConfigItemId === null) {
       // 保存全局配置
       setGlobalQuestionTypes([...tempQuestionTypes]);
+      setGlobalQuestionTypeRequirement(tempQuestionTypeRequirement);
       message.success('全局题型配置已保存');
     } else {
       // 保存单个知识点配置
@@ -726,8 +737,14 @@ export const QuizCreate = ({ selectedItems, onRemoveItem, onClearAll, onNavigate
       newMap.set(currentConfigItemId, configToSave);
       setItemQuestionTypes(newMap);
       
+      // 保存配置要求
+      const newRequirementMap = new Map(itemQuestionTypeRequirements);
+      newRequirementMap.set(currentConfigItemId, tempQuestionTypeRequirement);
+      setItemQuestionTypeRequirements(newRequirementMap);
+      
       // 调试日志：检查保存的配置
       console.log(`保存知识点 ${currentConfigItemId} 的配置:`, configToSave);
+      console.log(`保存知识点 ${currentConfigItemId} 的配置要求:`, tempQuestionTypeRequirement);
       console.log(`保存后的 itemQuestionTypes:`, Array.from(newMap.entries()));
       
       message.success('知识点题型配置已保存');
@@ -768,6 +785,33 @@ export const QuizCreate = ({ selectedItems, onRemoveItem, onClearAll, onNavigate
     
     // 3. 如果都没有配置，使用全局默认配置（深拷贝）
     return globalQuestionTypes.map(qt => ({ ...qt }));
+  };
+
+  // 获取知识点使用的配置要求（支持继承父节点配置）
+  const getQuestionTypeRequirementForItem = (itemId: string, itemMap?: Map<string, KnowledgeItem>): string => {
+    // 1. 检查当前节点是否有配置要求
+    const itemRequirement = itemQuestionTypeRequirements.get(itemId);
+    if (itemRequirement !== undefined) {
+      return itemRequirement;
+    }
+    
+    // 2. 向上查找父节点配置要求
+    if (itemMap) {
+      const currentItem = itemMap.get(itemId);
+      if (currentItem && currentItem.parentId) {
+        // 检查父节点是否有单独配置要求
+        const parentRequirement = itemQuestionTypeRequirements.get(currentItem.parentId);
+        if (parentRequirement !== undefined) {
+          return parentRequirement;
+        } else {
+          // 父节点没有单独配置要求，继续向上查找
+          return getQuestionTypeRequirementForItem(currentItem.parentId, itemMap);
+        }
+      }
+    }
+    
+    // 3. 如果都没有配置要求，使用全局配置要求
+    return globalQuestionTypeRequirement;
   };
 
   // 识别题目类型
@@ -927,6 +971,7 @@ export const QuizCreate = ({ selectedItems, onRemoveItem, onClearAll, onNavigate
       // 为每个叶子节点添加题型配置（支持继承父节点配置）
       const leafNodesWithConfig = leafNodes.map(item => {
         const questionTypes = getQuestionTypesForItem(item.id, itemMap);
+        const requirement = getQuestionTypeRequirementForItem(item.id, itemMap);
         
         // 调试日志：检查配置来源
         const hasItemConfig = itemQuestionTypes.has(item.id);
@@ -955,11 +1000,15 @@ export const QuizCreate = ({ selectedItems, onRemoveItem, onClearAll, onNavigate
         if (questionTypeConfig) {
           console.log(`知识点 ${item.id} 最终配置:`, questionTypeConfig);
         }
+        if (requirement) {
+          console.log(`知识点 ${item.id} 配置要求:`, requirement);
+        }
         
-        // 将题型配置添加到 item 中
+        // 将题型配置和配置要求添加到 item 中
         return {
           ...item,
-          question_types: questionTypeConfig
+          question_types: questionTypeConfig,
+          question_type_requirement: requirement || undefined // 只有非空时才传递
         };
       }).filter(item => {
         // 过滤掉没有配置题型的知识点
@@ -1727,7 +1776,10 @@ export const QuizCreate = ({ selectedItems, onRemoveItem, onClearAll, onNavigate
         title={currentConfigItemId === null ? "全局题型配置" : "知识点题型配置"}
         open={isConfigModalVisible}
         onOk={handleSaveConfig}
-        onCancel={() => setIsConfigModalVisible(false)}
+        onCancel={() => {
+          setIsConfigModalVisible(false);
+          setTempQuestionTypeRequirement('');
+        }}
         width={800}
         okText="保存"
         cancelText="取消"
@@ -1804,6 +1856,21 @@ export const QuizCreate = ({ selectedItems, onRemoveItem, onClearAll, onNavigate
               </div>
             </div>
           ))}
+          
+          {/* 题型配置要求输入框 */}
+          <div style={{ marginTop: 24, paddingTop: 16, borderTop: '1px solid #f0f0f0' }}>
+            <Text strong style={{ display: 'block', marginBottom: 8 }}>题型配置要求（可选）：</Text>
+            <TextArea
+              value={tempQuestionTypeRequirement}
+              onChange={(e) => setTempQuestionTypeRequirement(e.target.value)}
+              placeholder="请输入题型配置要求，例如：题目应结合实际案例，选项要具有干扰性等..."
+              rows={4}
+              style={{ marginTop: 8 }}
+            />
+            <Text type="secondary" style={{ fontSize: 12, marginTop: 4, display: 'block' }}>
+              此配置要求将作为AI生成题目的额外指导，为空时不影响题目生成
+            </Text>
+          </div>
         </div>
       </Modal>
     </div>

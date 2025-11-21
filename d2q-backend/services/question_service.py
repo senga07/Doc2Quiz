@@ -3,6 +3,7 @@
 包含题目生成、出题历史等业务逻辑
 """
 import json
+import asyncio
 from pathlib import Path
 from typing import List, Optional, Dict, Any, Tuple
 from uuid import uuid4
@@ -10,7 +11,7 @@ from fastapi import HTTPException
 from utils.unified_logger import get_logger
 from infrastructure.service_manager import service_manager
 from services.common import (
-    load_json_file, save_json_file, generate_id, get_current_iso_time
+    load_json_file, save_json_file, get_current_iso_time
 )
 from services.knowledge_service import KnowledgeService
 
@@ -214,9 +215,17 @@ class QuestionService:
     def build_prompt(
         knowledge_text: str, 
         question_requirements: List[Dict[str, str]], 
-        total_count: int
+        total_count: int,
+        requirement: Optional[str] = None
     ) -> str:
-        """构建AI提示词"""
+        """构建AI提示词
+        
+        Args:
+            knowledge_text: 知识点文本
+            question_requirements: 题目要求列表
+            total_count: 题目总数
+            requirement: 题型配置要求（可选）
+        """
         json_schema_example = {
             "questions": [
                 {
@@ -238,13 +247,18 @@ class QuestionService:
             for i, req in enumerate(question_requirements)
         ])
         
+        # 如果有配置要求，添加到提示词中
+        requirement_section = ""
+        if requirement and requirement.strip():
+            requirement_section = f"\n\n额外配置要求：\n{requirement.strip()}"
+        
         prompt = f"""根据以下知识点和关联文档，生成 {total_count} 道题目。
 
 知识点（格式：[ID] 知识点内容）：
 {knowledge_text}
 
 题目要求：
-{requirements_text}
+{requirements_text}{requirement_section}
 
 请严格按照以下 JSON 格式返回题目列表，确保：
 1. 返回一个 JSON 对象，包含 "questions" 数组
@@ -268,15 +282,17 @@ JSON 格式示例：
         return prompt
     
     @staticmethod
-    def call_ai_to_generate_questions(
+    async def call_ai_to_generate_questions_async(
         client, 
         messages_base: List[Dict[str, str]], 
         prompt: str
     ) -> List[Dict[str, Any]]:
-        """调用AI生成题目"""
+        """异步调用AI生成题目"""
         messages = messages_base + [{'role': 'user', 'content': prompt}]
         
-        completion = client.chat.completions.create(
+        # 使用 asyncio.to_thread 将同步调用包装为异步
+        completion = await asyncio.to_thread(
+            client.chat.completions.create,
             model="qwen-long",
             messages=messages,
             response_format={"type": "json_object"}
@@ -346,8 +362,13 @@ JSON 格式示例：
         }
     
     @staticmethod
-    def _normalize_question_types_config(question_types: List[Dict[str, Any]]) -> str:
-        """将题型配置序列化为字符串，用于比较配置是否相同"""
+    def _normalize_question_types_config(question_types: List[Dict[str, Any]], requirement: Optional[str] = None) -> str:
+        """将题型配置序列化为字符串，用于比较配置是否相同
+        
+        Args:
+            question_types: 题型配置列表
+            requirement: 配置要求（可选）
+        """
         if not question_types:
             return ""
         # 对配置进行排序，确保相同配置能匹配
@@ -355,16 +376,77 @@ JSON 格式示例：
             question_types,
             key=lambda x: (x.get('type', ''), x.get('low', 0), x.get('medium', 0), x.get('high', 0))
         )
-        return json.dumps(sorted_config, sort_keys=True)
+        config_str = json.dumps(sorted_config, sort_keys=True)
+        # 如果配置要求相同，也归为一组（配置要求为空时也视为相同）
+        requirement_str = requirement.strip() if requirement else ""
+        return f"{config_str}|||{requirement_str}"
+    
+    @staticmethod
+    async def _process_config_group(
+        client,
+        group_items: List[Dict[str, Any]],
+        config_key: str,
+        shared_messages_base: List[Dict[str, str]]
+    ) -> List[Dict[str, Any]]:
+        """处理单个配置组的题目生成（异步方法）
+        
+        Args:
+            client: OpenAI客户端
+            group_items: 该配置组的知识点列表
+            config_key: 配置键
+            shared_messages_base: 共享的文件消息列表（已上传的文件）
+        """
+        try:
+            # 1. 收集该组所有知识点的知识点信息（文件已统一上传，这里只收集知识点）
+            _, group_knowledge_points = QuestionService.collect_files_and_knowledge_points(
+                group_items, FILE_DIR
+            )
+            
+            # 2. 构建知识点文本
+            group_knowledge_text = QuestionService.build_knowledge_text(group_knowledge_points)
+            
+            # 3. 构建题目要求（使用该组第一个知识点的配置，因为同组配置相同）
+            group_question_types = group_items[0].get('question_types', [])
+            group_total_count, group_question_requirements = QuestionService.build_question_requirements(group_question_types)
+            
+            # 4. 获取配置要求（使用该组第一个知识点的配置要求，因为同组配置相同）
+            group_requirement = group_items[0].get('question_type_requirement')
+            
+            if group_total_count == 0:
+                logger.warning(f"配置组 {config_key[:20]}... 题目数量为0，跳过该组")
+                return []
+            
+            # 5. 构建提示词（包含配置要求）
+            group_prompt = QuestionService.build_prompt(
+                group_knowledge_text, 
+                group_question_requirements, 
+                group_total_count,
+                group_requirement
+            )
+            
+            # 6. 异步调用AI生成题目（使用共享的文件消息）
+            group_questions = await QuestionService.call_ai_to_generate_questions_async(
+                client, shared_messages_base, group_prompt
+            )
+            
+            if len(group_questions) != group_total_count:
+                logger.warning(f"配置组 {config_key[:20]}... 期望生成 {group_total_count} 道题目，实际返回 {len(group_questions)} 道")
+            
+            logger.info(f"配置组 {config_key[:20]}... 成功生成 {len(group_questions)} 道题目")
+            return group_questions
+        except Exception as e:
+            logger.error(f"配置组 {config_key[:20]}... 处理失败: {str(e)}")
+            return []
     
     @staticmethod
     async def generate_questions(
         selected_items: List[Dict[str, Any]]
     ) -> Dict[str, Any]:
-        """生成题目
+        """生成题目（并发优化版本）
         
         从每个 selected_item 的 question_types 字段中提取题型配置
-        相同配置的知识点一起生成，不同配置的知识点分别生成
+        相同配置的知识点一起生成，不同配置的知识点并发生成
+        所有题目基于同一份文档生成，文件统一上传
         """
         client = service_manager.get_openai_client()
         
@@ -384,62 +466,53 @@ JSON 格式示例：
         if not items_with_config:
             raise HTTPException(status_code=400, detail="未配置需要生成的题目数量，请至少为一个知识点配置题型")
         
-        # 2. 按题型配置分组知识点
+        # 2. 收集所有配置组需要的文件（一次性收集并去重）
+        all_file_paths, _ = QuestionService.collect_files_and_knowledge_points(items_with_config, FILE_DIR)
+        
+        if not all_file_paths:
+            raise HTTPException(status_code=400, detail="未找到关联的文件，无法生成题目")
+        
+        # 3. 统一上传所有文件（只上传一次）
+        logger.info(f"开始上传 {len(all_file_paths)} 个文件到OpenAI")
+        shared_file_objects = QuestionService.upload_files_to_openai(client, all_file_paths)
+        shared_messages_base = QuestionService.build_file_messages(shared_file_objects)
+        logger.info(f"文件上传完成，共 {len(shared_file_objects)} 个文件对象")
+        
+        # 4. 按题型配置分组知识点（包括配置要求）
         config_groups = {}  # key: 配置的字符串表示, value: 该配置下的知识点列表
         for item in items_with_config:
             question_types = item.get('question_types', [])
-            config_key = QuestionService._normalize_question_types_config(question_types)
+            requirement = item.get('question_type_requirement')
+            config_key = QuestionService._normalize_question_types_config(question_types, requirement)
             if config_key not in config_groups:
                 config_groups[config_key] = []
             config_groups[config_key].append(item)
         
-        # 3. 为每个配置组分别生成题目
+        # 5. 并发处理所有配置组（使用共享的文件消息）
+        logger.info(f"开始并发处理 {len(config_groups)} 个配置组")
+        tasks = [
+            QuestionService._process_config_group(client, group_items, config_key, shared_messages_base)
+            for config_key, group_items in config_groups.items()
+        ]
+        
+        # 使用 asyncio.gather 并发执行所有任务
+        results = await asyncio.gather(*tasks, return_exceptions=True)
+        
+        # 6. 收集所有生成的题目
         all_questions = []
-        for config_key, group_items in config_groups.items():
-            # 3.1 收集该组所有知识点的文件路径和知识点信息
-            group_file_paths, group_knowledge_points = QuestionService.collect_files_and_knowledge_points(
-                group_items, FILE_DIR
-            )
-            
-            if not group_file_paths:
-                logger.warning(f"配置组未找到关联的文件，跳过该组")
-                continue
-            
-            # 3.2 构建知识点文本
-            group_knowledge_text = QuestionService.build_knowledge_text(group_knowledge_points)
-            
-            # 3.3 上传文件到OpenAI
-            group_file_objects = QuestionService.upload_files_to_openai(client, group_file_paths)
-            
-            # 3.4 构建文件消息
-            group_messages_base = QuestionService.build_file_messages(group_file_objects)
-            
-            # 3.5 构建题目要求（使用该组第一个知识点的配置，因为同组配置相同）
-            group_question_types = group_items[0].get('question_types', [])
-            group_total_count, group_question_requirements = QuestionService.build_question_requirements(group_question_types)
-            
-            if group_total_count == 0:
-                logger.warning(f"配置组题目数量为0，跳过该组")
-                continue
-            
-            # 3.6 构建提示词
-            group_prompt = QuestionService.build_prompt(group_knowledge_text, group_question_requirements, group_total_count)
-            
-            # 3.7 调用AI生成题目
-            group_questions = QuestionService.call_ai_to_generate_questions(
-                client, group_messages_base, group_prompt
-            )
-            
-            if len(group_questions) != group_total_count:
-                logger.warning(f"配置组期望生成 {group_total_count} 道题目，实际返回 {len(group_questions)} 道")
-            
-            # 3.8 将生成的题目添加到总列表
-            all_questions.extend(group_questions)
+        for i, result in enumerate(results):
+            if isinstance(result, Exception):
+                config_key = list(config_groups.keys())[i]
+                logger.error(f"配置组 {config_key[:20]}... 处理异常: {str(result)}")
+            elif isinstance(result, list):
+                all_questions.extend(result)
         
         if not all_questions:
             raise HTTPException(status_code=400, detail="未能生成任何题目")
         
-        # 4. 返回所有生成的题目
+        logger.info(f"所有配置组处理完成，共生成 {len(all_questions)} 道题目")
+        
+        # 7. 返回所有生成的题目
         return {
             "questions": all_questions
         }

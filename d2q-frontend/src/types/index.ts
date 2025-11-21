@@ -49,6 +49,7 @@ export interface KnowledgeItem {
   file_name?: string; // 知识点节点的文件名
   node_id?: number; // 知识点节点的原始ID
   question_types?: QuestionTypeConfigItem[]; // 题型配置（可选，如果未配置则继承父节点）
+  question_type_requirement?: string; // 题型配置要求（可选）
 }
 
 // 目录项类型
@@ -95,5 +96,6 @@ export interface SelectedKnowledgePointNode {
   path: string[]; // 从根到当前节点的路径
   type: 'knowledge'; // 类型标识
   question_types?: QuestionTypeConfigItem[]; // 题型配置（可选，如果未配置则继承父节点）
+  question_type_requirement?: string; // 题型配置要求（可选）
 }
 
