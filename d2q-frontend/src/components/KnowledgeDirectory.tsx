@@ -4,6 +4,7 @@ import type { DataNode } from 'antd/es/tree';
 import { FolderOutlined, FileOutlined, PlusOutlined, DeleteOutlined, BookOutlined } from '@ant-design/icons';
 import { KnowledgeItem, SelectedKnowledgePointNode } from '../types';
 import { ApiService } from '../services/api';
+import { generateUUID } from '../utils';
 import './KnowledgeDirectory.css';
 
 interface KnowledgeDirectoryProps {
@@ -432,7 +433,7 @@ export const KnowledgeDirectory = ({
       }
       
       const newItem: KnowledgeItem = {
-        id: crypto.randomUUID(),
+        id: generateUUID(),
         name: itemName.trim(),
         type: type,
         parentId: parentId,
